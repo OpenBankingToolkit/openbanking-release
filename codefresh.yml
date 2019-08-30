@@ -19,3 +19,7 @@ steps:
     working_directory: ./
     tag: latest
     dockerfile: Dockerfile
+    when:
+      branch:
+        only:
+          - master
