@@ -19,5 +19,5 @@ if [ -n "$1" ]
 then
      MAVEN_REPO_LOCAL="-Dmaven.repo.local=$1"
 fi
-mvn $MAVEN_REPO_LOCAL -Dusername=$GITHUB_ACCESS_TOKEN release:prepare -B
-mvn $MAVEN_REPO_LOCAL release:perform -B -Darguments="-Dmaven.javadoc.skip=true"
+mvn $MAVEN_REPO_LOCAL -Dusername=$GITHUB_ACCESS_TOKEN release:prepare -B -DskipTest -DskipITs -Ddockerfile.skip -DdockerCompose.skip
+mvn $MAVEN_REPO_LOCAL release:perform -B -Darguments="-Dmaven.javadoc.skip=true -DskipTest -DskipITs -Ddockerfile.skip -DdockerCompose.skip"
